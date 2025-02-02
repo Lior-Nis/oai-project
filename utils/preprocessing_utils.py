@@ -99,9 +99,9 @@ def create_map_scipy_without_ori(mnt_dict_list, size=(768, 832), num_of_maps=3):
 def main():
     # input arguments
     include_singular = False
-    imgs_path = '< PATH TO THE FINGERPRINT IMAGES FOLDER (IN TIF FORMAT) >'
-    txts_path = '< PATH TO THE MINUTIAE SET TEXT FILES FOLDER >'
-    output_path = '< PATH TO THE OUTPUT FOLDER >'
+    imgs_path = '/content/oai-project/data_samples/scans'
+    txts_path = '/content/oai-project/data_samples/minutiae'
+    output_path = '/content/min_maps'
 
     # create output folder if not exist
     if not os.path.exists(output_path):
