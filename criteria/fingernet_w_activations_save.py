@@ -156,7 +156,7 @@ def select_max_torch(x):
     return x_norm
 
 
-class FingerNet(nn.Module):
+class FingerNetSave(nn.Module):
     def __init__(self, requires_grad=False):
         super(FingerNet, self).__init__()
         self.conv1_1 = nn.Conv2d(1, 64, 3, stride=1, dilation=1, padding=1)
