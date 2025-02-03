@@ -99,8 +99,8 @@ def create_map_scipy_without_ori(mnt_dict_list, size=(768, 832), num_of_maps=3):
 def main():
     # input arguments
     include_singular = False
-    imgs_path = '/content/oai-project/data_samples/scans'
-    txts_path = '/content/oai-project/data_samples/minutiae'
+    imgs_path = '/content/oai_project/data_samples/scans'
+    txts_path = '/content/oai_project/data_samples/minutiae'
     output_path = '/content/min_maps'
 
     # create output folder if not exist
