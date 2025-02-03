@@ -2,7 +2,7 @@ import os
 import random
 import numpy as np
 import sys
-sys.path.append('/content/oai-project')
+sys.path.append('/content/oai_project')
 import torch
 from utils.common import tensor2im
 from tqdm import tqdm
