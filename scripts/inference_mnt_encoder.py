@@ -9,7 +9,7 @@ from PIL import Image
 from torch.utils.data import DataLoader
 from tqdm import tqdm
 
-sys.path.append('/content/oai-project')
+sys.path.append('/content/oai_project')
 
 from configs import data_configs
 from datasets.inference_dataset import InferenceDataset
