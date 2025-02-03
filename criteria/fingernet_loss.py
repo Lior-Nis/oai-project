@@ -7,7 +7,7 @@ from scipy import sparse, spatial
 import matplotlib
 # matplotlib.use('Qt5Agg')
 
-from configs.paths_config import model_paths
+from ..configs.paths_config import model_paths
 
 
 class FingerNetLoss(nn.Module):
