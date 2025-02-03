@@ -113,8 +113,8 @@ def create_map_dir(min_folder, img_folder, output_folder):
 
 def main():
     # input arguments
-    imgs_path = '/content/oai-project/data_samples/scans'
-    txts_path = '/content/oai-project/data_samples/minutiae'
+    imgs_path = '/content/oai_project/data_samples/scans'
+    txts_path = '/content/oai_project/data_samples/minutiae'
     output_path = '/content/min_maps_fixed'
 
     # create output folder if not exist
