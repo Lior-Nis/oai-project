@@ -29,4 +29,11 @@ DATASETS = {
 		'test_source_root': dataset_paths['nist_sd4_mnt_test'],
 		'test_target_root': dataset_paths['nist_sd4_mnt_gt_test'],
 	},
+	'enhanced_LivDet_mnt': {
+		'transforms': transforms_config.MntToFingerTransforms,
+		'train_source_root': dataset_paths['enhanced_LivDet_mnt'],
+		'train_target_root': dataset_paths['enhanced_LivDet_mnt'],
+		'test_source_root': dataset_paths['enhanced_LivDet_mnt'],
+		'test_target_root': dataset_paths['enhanced_LivDet_mnt'],
+	},
 }

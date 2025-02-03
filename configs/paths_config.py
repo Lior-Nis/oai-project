@@ -18,6 +18,8 @@ dataset_paths = {
     # NIST SD4 Synthesis
     'nist_sd4_gt_train': '/hdd/PycharmProjects/fingerprints/Data/NISTSD4/NISTSD4_for_PIX2PIX/train_B',
     'nist_sd4_gt_test': '/hdd/PycharmProjects/fingerprints/Data/NISTSD4/NISTSD4_for_PIX2PIX/test_B',
+
+    "enhanced_LivDet_mnt": "placeholder",
 }
 
 model_paths = {
