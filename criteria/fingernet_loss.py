@@ -286,7 +286,7 @@ class FingerNet(nn.Module):
             for param in self.parameters():
                 param.requires_grad = False
 
-    def forward(self, input, label_nc=3):
+    def forward(self, input, label_nc=1):
         if label_nc == 3:
             input = convert_to_gray(input)
 
