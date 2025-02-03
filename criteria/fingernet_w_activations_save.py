@@ -158,7 +158,7 @@ def select_max_torch(x):
 
 class FingerNetSave(nn.Module):
     def __init__(self, requires_grad=False):
-        super(FingerNet, self).__init__()
+        super(FingerNetSave, self).__init__()
         self.conv1_1 = nn.Conv2d(1, 64, 3, stride=1, dilation=1, padding=1)
         self.bn1_1 = nn.BatchNorm2d(64)
         self.bn1_1.training = False
