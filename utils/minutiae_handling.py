@@ -5,6 +5,7 @@ import os
 import scipy.ndimage as sc
 from skimage.draw import line_nd
 from tqdm import tqdm
+import glob
 from PIL import Image
 
 # Define the path to the mindtct and bozorth3 executables
@@ -227,21 +228,34 @@ def create_map_scipy_without_ori(mnt_dict_list, size=(768, 832), num_of_maps=3):
     output = np.concatenate(maps, axis=-1)
     return output
 
+
 def create_map_dir(min_folder, img_folder, output_folder):
     os.makedirs(output_folder, exist_ok=True)
+
     for filename in tqdm(os.listdir(min_folder)):
-      try:
-        img = Image.open(os.path.join(img_folder, filename.split(".")[0] + ".tif"))
-        width, height = img.size
-        txt_path = os.path.join(min_folder, filename)
-        mnt = parse_minute_file(txt_path)
-        map = create_map_scipy(mnt, include_singular=False, size=(height, width))
-        map_filename = os.path.join(output_folder, os.path.splitext(filename)[0] + ".png")
-        plt.imsave(map_filename, map)
-      except Exception as e:
-        # print(f"Exception occurred while creating minutiae maps: {e}")
-        print("File name: ", filename)
-        # raise e
+        try:
+            # Get the base name without extension.
+            base = os.path.splitext(filename)[0]
+            # Find any file in img_folder that starts with the same base name.
+            img_candidates = glob.glob(os.path.join(img_folder, base + ".*"))
+            if not img_candidates:
+                raise FileNotFoundError(f"No image file found for {base} in {img_folder}")
+            # Use the first matching file.
+            img_path = img_candidates[0]
+            img = Image.open(img_path)
+            width, height = img.size
+
+            txt_path = os.path.join(min_folder, filename)
+            mnt = parse_minute_file(txt_path)
+            map_img = create_map_scipy(mnt, include_singular=False, size=(height, width))
+
+            # Save the map with a .png extension.
+            map_filename = os.path.join(output_folder, base + ".png")
+            plt.imsave(map_filename, map_img)
+        except Exception as e:
+            print(f"Exception occurred while creating minutiae maps: {e}")
+            print("File name:", filename)
+
 
 def run_bozorth3(probe_file, gallery_file):
     command = [bozorth_executable, probe_file, gallery_file]
